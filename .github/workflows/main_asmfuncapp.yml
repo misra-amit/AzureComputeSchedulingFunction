@@ -29,10 +29,9 @@ jobs:
       - name: 'Resolve Project Dependencies Using Dotnet'
         shell: pwsh
         run: |
-          cd src/RemcoEissing.Examples.ComputeSchedulingApi
-          dir .
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/src/RemcoEissing.Examples.ComputeSchedulingApi'
           dotnet build --configuration Release --output ./output
+          dir ./output
           popd
       
       - name: 'Run Azure Functions Action'
